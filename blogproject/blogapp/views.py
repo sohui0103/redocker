@@ -20,6 +20,7 @@ def create(request): # 입력받은 내용을 데이터베이스에 넣어주는
     new_blog.writer = request.POST['writer']
     new_blog.pub_date = timezone.now()
     new_blog.body = request.POST['body']
+    new_blog.img = request.FILES['img']
     new_blog.save()
     return redirect('detail', str(new_blog.id))
 
